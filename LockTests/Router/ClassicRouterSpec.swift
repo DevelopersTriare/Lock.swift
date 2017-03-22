@@ -221,10 +221,10 @@ class ClassicRouterSpec: QuickSpec {
 
             describe("exit") {
 
-                var presenting: MockController!
+                var presenting: MockViewController!
 
                 beforeEach {
-                    presenting = MockController()
+                    presenting = MockViewController()
                     presenting.presented = controller
                     controller.presenting = presenting
                 }
@@ -313,7 +313,7 @@ class ClassicRouterSpec: QuickSpec {
         describe("reload") {
 
             beforeEach {
-                let presenting = MockController()
+                let presenting = MockViewController()
                 presenting.presented = controller
                 controller.presenting = presenting
             }

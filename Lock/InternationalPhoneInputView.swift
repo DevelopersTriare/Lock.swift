@@ -195,7 +195,7 @@ class InternationalPhoneInputView: UIView, Form {
         navigationModal.addBackButton {
             navigationModal.dismiss(animated: true, completion: nil)
         }
-        navigationModal.present()
+        ControllerModalPresenter().present(controller: navigationModal)
     }
 
 }

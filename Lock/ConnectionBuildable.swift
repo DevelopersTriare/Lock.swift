@@ -77,7 +77,7 @@ public protocol ConnectionBuildable: Connections {
      Adds a new passwordless connection
 
      - parameter name:  name of the connection
-     - paramater strategy: name of the strategy
+     - paramater strategy: name of the strategy, "sms" or "email"
      */
     mutating func passwordless(name: String, strategy: String)
 }

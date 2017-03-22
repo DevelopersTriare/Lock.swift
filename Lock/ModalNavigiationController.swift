@@ -39,8 +39,4 @@ class ModalNavigationController: UINavigationController {
         self.navigationBar.topItem?.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action:#selector(navigateBack))
         self.onBack = callback
     }
-
-    func present() {
-        ControllerModalPresenter().present(controller: self)
-    }
 }

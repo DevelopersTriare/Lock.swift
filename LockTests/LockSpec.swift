@@ -86,10 +86,10 @@ class LockSpec: QuickSpec {
 
         describe("present") {
 
-            var controller: MockController!
+            var controller: MockViewController!
 
             beforeEach {
-                controller = MockController()
+                controller = MockViewController()
             }
 
             it("should present lock viewcontroller") {
