@@ -32,11 +32,11 @@ protocol PasswordlessAuthTransaction: CredentialAuthenticatable, Loggable {
 }
 
 struct PasswordlessLinkTransaction: PasswordlessAuthTransaction {
-    var connection: String
-    var options: Options
-    var identifier: String
-    var authentication: Authentication
-    var dispatcher: Dispatcher
+    let connection: String
+    let options: Options
+    let identifier: String
+    let authentication: Authentication
+    let dispatcher: Dispatcher
 }
 
 extension PasswordlessAuthTransaction {

@@ -44,25 +44,32 @@ class PasswordlessActivity: PasswordlessUserActivity, Loggable {
 
     func continueAuth(withActivity userActivity: NSUserActivity) -> Bool {
 
+        self.logger.verbose("Processing userActivity")
+
         guard userActivity.activityType == NSUserActivityTypeBrowsingWeb, let url = userActivity.webpageURL,
             let components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
-                self.logger.debug("Not intended audience of this useractivity")
+                self.logger.error("Not intended audience of this useractivity")
                 return false
         }
 
         guard let bundlerIdentifier = Bundle.main.bundleIdentifier, components.path.lowercased().contains(bundlerIdentifier.lowercased()), let items = components.queryItems else {
-            self.logger.debug("URL does not containt bundle identifier")
+            self.logger.error("URL does not contain our bundle identifier")
             return false
         }
 
         guard let key = items.filter({ $0.name == "code" }).first, let passcode = key.value, Int(passcode) != nil else {
-            self.logger.debug("No valid passcode was found in the URL")
+            self.logger.error("No valid passcode was found in the URL")
             messagePresenter?.showError(PasswordlessAuthenticatableError.invalidLink)
             self.dispatcher?.dispatch(result: .error(PasswordlessAuthenticatableError.invalidLink))
             return false
         }
 
-        self.current?.auth(withPasscode: passcode) {
+        guard let passwordlessAuth = self.current else {
+            self.logger.error("No passworldess authenticator is currently stored")
+            return true
+        }
+
+        passwordlessAuth.auth(withPasscode: passcode) {
             if let error = $0 { self.messagePresenter?.showError(error) }
         }
         self.current = nil
