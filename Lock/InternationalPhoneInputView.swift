@@ -192,9 +192,6 @@ class InternationalPhoneInputView: UIView, Form {
         }
         let navigationModal = ModalNavigationController(rootViewController: countryTableView)
         navigationModal.header = "Calling codes".i18n(key: "com.auth0.lock.passwordless.sms.country.header", comment: "Country tableview navigation header")
-        navigationModal.addBackButton {
-            navigationModal.dismiss(animated: true, completion: nil)
-        }
         ControllerModalPresenter().present(controller: navigationModal)
     }
 

@@ -370,6 +370,14 @@ class PasswordlessInteractorSpec: QuickSpec {
                 }
             }
 
+            describe("country access") {
+
+                it("should set get country") {
+                    interactor.countryCode = countryData
+                    expect(interactor.countryCode?.name) == countryData.name
+                }
+            }
+
             describe("login") {
 
                 it("should yield no error and dipsatch credentials on success") {

@@ -31,10 +31,10 @@ class ModalNavigiationControllerSpec: QuickSpec {
 
         var controller: MockViewController!
         var navigation: ModalNavigationController!
-        var backAction: Bool = false
+        var closeAction: Bool = false
 
         beforeEach {
-            backAction = false
+            closeAction = false
             controller = MockViewController()
             navigation = ModalNavigationController(rootViewController: controller)
         }
@@ -65,21 +65,16 @@ class ModalNavigiationControllerSpec: QuickSpec {
                 expect(navigation.navigationBar.topItem?.title) == "TEST HEADER"
             }
 
-            it("should add back button") {
-                navigation.addBackButton { }
-                expect(navigation.navigationBar.topItem?.leftBarButtonItem).toNot(beNil())
-            }
-
         }
 
-        describe("action") {
+        describe("close") {
 
-            it("should call navigate back") {
-                navigation.addBackButton {
-                    backAction = true
+            it("should close controller and callback") {
+                navigation.onClose = {
+                    closeAction = true
                 }
-                navigation.navigateBack()
-                expect(backAction).to(beTrue())
+                navigation.close()
+                expect(closeAction).to(beTrue())
             }
         }
 

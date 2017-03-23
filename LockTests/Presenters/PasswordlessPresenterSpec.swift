@@ -27,6 +27,7 @@ import Auth0
 @testable import Lock
 
 private let phone = "01234567891"
+private let countryData = CountryCode(id: "UK", prefix: "+44", name: "United Kingdom")
 
 class PasswordlessPresenterSpec: QuickSpec {
 
@@ -114,6 +115,18 @@ class PasswordlessPresenterSpec: QuickSpec {
                         view.form?.onReturn(input)
                         expect(messagePresenter.error).toEventually(beNil())
                     }
+
+
+                    it("should not trigger action with nil button") {
+                        let input = mockInput(.email, value: email)
+                        input.returnKey = .done
+                        interactor.onRequest = { return nil }
+                        view.primaryButton = nil
+                        view.form?.onReturn(input)
+                        expect(messagePresenter.message).toEventually(beNil())
+                        expect(messagePresenter.error).toEventually(beNil())
+                    }
+
 
                     it("should trigger action on primary button press") {
                         view.primaryButton!.onPress(view.primaryButton!)
@@ -325,6 +338,17 @@ class PasswordlessPresenterSpec: QuickSpec {
                         expect(input.valid) == false
                     }
 
+                    it("should update country") {
+                        view.form?.onCountryChange(countryData)
+                        expect(interactor.countryCode?.name) ==  countryData.name
+                    }
+
+                    it("should show field error if invalid input type") {
+                        let input = mockInput(.username, value: "0")
+                        view.form?.onValueChange(input)
+                        expect(input.valid) == false
+                    }
+
                 }
 
                 describe("request code") {
@@ -345,6 +369,16 @@ class PasswordlessPresenterSpec: QuickSpec {
                         input.returnKey = .done
                         interactor.onRequest = { return nil }
                         view.form?.onReturn(input)
+                        expect(messagePresenter.error).toEventually(beNil())
+                    }
+
+                    it("should not trigger action with nil button") {
+                        let input = mockInput(.phone, value: phone)
+                        input.returnKey = .done
+                        interactor.onRequest = { return nil }
+                        view.primaryButton = nil
+                        view.form?.onReturn(input)
+                        expect(messagePresenter.message).toEventually(beNil())
                         expect(messagePresenter.error).toEventually(beNil())
                     }
 
