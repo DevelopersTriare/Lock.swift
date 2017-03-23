@@ -58,6 +58,7 @@
 		5BE4344F1E64820800950FA1 /* PasswordRecoverable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE4344D1E64820800950FA1 /* PasswordRecoverable.swift */; };
 		5BE9781E1E82D37A0090EC07 /* ModalNavigiationControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE9781C1E82D37A0090EC07 /* ModalNavigiationControllerSpec.swift */; };
 		5BE978201E82E7FA0090EC07 /* CountryTableViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE9781F1E82E7FA0090EC07 /* CountryTableViewControllerSpec.swift */; };
+		5BE978241E8405C70090EC07 /* PasswordlessAuthenticatable1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE978231E8405C70090EC07 /* PasswordlessAuthenticatable1.swift */; };
 		5F0FCF901E20117E00E3D53B /* ObserverStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0FCF8F1E20117E00E3D53B /* ObserverStore.swift */; };
 		5F0FCF921E201CF300E3D53B /* ObserverStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0FCF911E201CF300E3D53B /* ObserverStoreSpec.swift */; };
 		5F14565A1D5130E80085DF9C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1456591D5130E80085DF9C /* Colors.swift */; };
@@ -271,6 +272,7 @@
 		5BE4344D1E64820800950FA1 /* PasswordRecoverable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordRecoverable.swift; sourceTree = "<group>"; };
 		5BE9781C1E82D37A0090EC07 /* ModalNavigiationControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalNavigiationControllerSpec.swift; sourceTree = "<group>"; };
 		5BE9781F1E82E7FA0090EC07 /* CountryTableViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryTableViewControllerSpec.swift; sourceTree = "<group>"; };
+		5BE978231E8405C70090EC07 /* PasswordlessAuthenticatable1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordlessAuthenticatable1.swift; sourceTree = "<group>"; };
 		5F0FCF8F1E20117E00E3D53B /* ObserverStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverStore.swift; sourceTree = "<group>"; };
 		5F0FCF911E201CF300E3D53B /* ObserverStoreSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ObserverStoreSpec.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5F1456591D5130E80085DF9C /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = Lock/Colors.swift; sourceTree = SOURCE_ROOT; };
@@ -487,6 +489,7 @@
 				5F1C49941D8360F5005B74FC /* RemoteConnectionLoader.swift */,
 				5B9A54431E4B275E004B5454 /* PasswordlessInteractor.swift */,
 				5B9A54451E4B2CB4004B5454 /* PasswordlessAuthenticatable.swift */,
+				5BE978231E8405C70090EC07 /* PasswordlessAuthenticatable1.swift */,
 			);
 			name = Interactors;
 			path = Lock;
@@ -1138,6 +1141,7 @@
 				5B889AF01E7022B900C9FBAF /* ControllerModalPresenter.swift in Sources */,
 				5F70F1EE1D790BBE004698DA /* LockViewController.swift in Sources */,
 				5F5D4A261DC3FB34002A38EB /* PasswordPolicyView.swift in Sources */,
+				5BE978241E8405C70090EC07 /* PasswordlessAuthenticatable1.swift in Sources */,
 				5F99AA821D1B0A3900D27842 /* i18n.swift in Sources */,
 				5F73CDD41D3073BE00D8D8D1 /* DatabaseForgotPasswordView.swift in Sources */,
 				5F99AA961D1C4AF400D27842 /* CredentialView.swift in Sources */,
