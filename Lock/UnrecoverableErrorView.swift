@@ -75,16 +75,13 @@ class UnrecoverableErrorView: UIView, View {
         actionButton.translatesAutoresizingMaskIntoConstraints = false
 
         imageView.image = LazyImage(name: "ic_connection_error", bundle: bundleForLock()).image(compatibleWithTraits: self.traitCollection)
-        imageView.contentScaleFactor = 0.5
         messageLabel.text = "We encountered an error".i18n(key: "com.auth0.lock.error.unrecoverable.title", comment: "Unrecoverable error title")
         messageLabel.textAlignment = .center
-        messageLabel.numberOfLines = 3
         messageLabel.font = lightSystemFont(size: 24)
         actionLabel.textColor = UIColor.lightGray
         actionLabel.font = regularSystemFont(size: 16)
         actionButton.button?.setTitleColor(UIColor(red:0.04, green:0.53, blue:0.69, alpha:1.0), for: .normal)
         actionButton.button?.titleLabel?.font = actionLabel.font
-        actionButton.sizeToFit()
 
         if !canRetry {
             actionLabel.text = "Please contact ".i18n(key: "com.auth0.lock.error.unrecoverable.support.title", comment: "Support label")
@@ -93,9 +90,6 @@ class UnrecoverableErrorView: UIView, View {
             actionLabel.text = "Please ".i18n(key: "com.auth0.lock.error.unrecoverable.retry.title", comment: "Retry label")
             actionButton.title = "retry.".i18n(key: "com.auth0.lock.error.unrecoverable.retry.action", comment: "Retry action")
         }
-
-        messageLabel.sizeToFit()
-        actionButton.sizeToFit()
     }
 
     required init?(coder aDecoder: NSCoder) {
