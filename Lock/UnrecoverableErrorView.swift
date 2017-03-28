@@ -83,12 +83,12 @@ class UnrecoverableErrorView: UIView, View {
         actionButton.button?.setTitleColor(UIColor(red:0.04, green:0.53, blue:0.69, alpha:1.0), for: .normal)
         actionButton.button?.titleLabel?.font = actionLabel.font
 
-        if !canRetry {
-            actionLabel.text = "Please contact ".i18n(key: "com.auth0.lock.error.unrecoverable.support.title", comment: "Support label")
-            actionButton.title = "support.".i18n(key: "com.auth0.lock.error.unrecoverable.support.action", comment: "Support action")
-        } else {
+        if canRetry {
             actionLabel.text = "Please ".i18n(key: "com.auth0.lock.error.unrecoverable.retry.title", comment: "Retry label")
             actionButton.title = "retry.".i18n(key: "com.auth0.lock.error.unrecoverable.retry.action", comment: "Retry action")
+        } else {
+            actionLabel.text = "Please contact ".i18n(key: "com.auth0.lock.error.unrecoverable.support.title", comment: "Support label")
+            actionButton.title = "support.".i18n(key: "com.auth0.lock.error.unrecoverable.support.action", comment: "Support action")
         }
     }
 
