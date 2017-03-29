@@ -58,6 +58,16 @@ struct OfflineConnections: ConnectionBuildable {
         self.passwordless.append(passwordless)
     }
 
+    mutating func sms(name: String) {
+        let passwordless = PasswordlessConnection(name: name, strategy: "sms")
+        self.passwordless.append(passwordless)
+    }
+
+    mutating func email(name: String) {
+        let passwordless = PasswordlessConnection(name: name, strategy: "email")
+        self.passwordless.append(passwordless)
+    }
+
     var isEmpty: Bool {
         return self.database == nil && self.oauth2.isEmpty && self.enterprise.isEmpty && self.passwordless.isEmpty
     }

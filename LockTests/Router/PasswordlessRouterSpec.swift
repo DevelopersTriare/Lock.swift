@@ -37,7 +37,7 @@ class PasswordlessRouterSpec: QuickSpec {
 
         beforeEach {
             lock = Lock(authentication: Auth0.authentication(clientId: "CLIENT_ID", domain: "samples.auth0.com"), webAuth: MockWebAuth(), classic: false)
-            _ = lock.withConnections { $0.passwordless(name: "custom-email", strategy: "email") }
+            _ = lock.withConnections { $0.email(name: "custom-email") }
             controller = MockLockController(lock: lock)
             header = HeaderView()
             controller.headerView = header
@@ -52,7 +52,7 @@ class PasswordlessRouterSpec: QuickSpec {
 
             it("should return root for passwordless email connection") {
                 _ = lock.withConnections {
-                    $0.passwordless(name: "custom-email", strategy: "email")
+                    $0.email(name: "custom-email")
                 }
                 let presenter = router.root as? PasswordlessPresenter
                 expect(presenter).toNot(beNil())
@@ -60,7 +60,7 @@ class PasswordlessRouterSpec: QuickSpec {
 
             it("should return root for passwordless sms connection") {
                 _ = lock.withConnections {
-                    $0.passwordless(name: "custom-sms", strategy: "sms")
+                    $0.sms(name: "custom-sms")
                 }
                 let presenter = router.root as? PasswordlessPresenter
                 expect(presenter).toNot(beNil())
@@ -77,7 +77,7 @@ class PasswordlessRouterSpec: QuickSpec {
             it("should return root for social connections and passwordless email") {
                 _ = lock.withConnections {
                     $0.social(name: "facebook", style: .Facebook)
-                    $0.passwordless(name: "custom-email", strategy: "email")
+                    $0.email(name: "custom-email")
                 }
                 let presenter = router.root as? PasswordlessPresenter
                 expect(presenter).toNot(beNil())
@@ -87,7 +87,7 @@ class PasswordlessRouterSpec: QuickSpec {
             it("should return root for social connections and passwordless sms") {
                 _ = lock.withConnections {
                     $0.social(name: "facebook", style: .Facebook)
-                    $0.passwordless(name: "custom-sms", strategy: "sms")
+                    $0.sms(name: "custom-sms")
                 }
                 let presenter = router.root as? PasswordlessPresenter
                 expect(presenter).toNot(beNil())

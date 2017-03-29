@@ -53,7 +53,7 @@ enum InputValidationError: Error {
         case .passwordPolicyViolation(let result):
             return result.first?.message ?? "Password does not fulfill policy".i18n(key: "com.auth0.lock.input.policy.error", comment: "policy violation")
         case .notAUsername:
-            return "Must bve a valiud username".i18n(key: "com.auth0.lock.input.username.error.generic", comment: "invalid username generic")
+            return "Must have a valid username".i18n(key: "com.auth0.lock.input.username.error.generic", comment: "invalid username generic")
         }
     }
 }
