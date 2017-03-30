@@ -42,12 +42,17 @@ class CountryTableViewController: UITableViewController {
         definesPresentationContext = true
         tableView.tableHeaderView = search.searchBar
 
-        let navigationHeader = UINavigationBar()
-        self.tableView.addSubview(navigationHeader)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action:#selector(close))
+        navigationItem.title = "Select your Country code".i18n(key: "com.auth0.lock.passwordless.sms.country.header", comment: "Country tableview navigation header")
+
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func close() {
+        self.dismiss(animated: true, completion:  nil)
     }
 
     override func viewDidLoad() {

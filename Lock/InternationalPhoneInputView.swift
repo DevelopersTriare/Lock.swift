@@ -39,7 +39,8 @@ class InternationalPhoneInputView: UIView, Form {
         self.stackView = UIStackView()
         self.countryStore = data
         super.init(frame: CGRect.zero)
-        self.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.launchCountryTable(_:)))
+        self.container.addGestureRecognizer(tapGesture)
         self.layoutForm()
     }
 
@@ -185,15 +186,11 @@ class InternationalPhoneInputView: UIView, Form {
         container.layer.borderColor = UIColor ( red: 0.9333, green: 0.9333, blue: 0.9333, alpha: 1.0 ).cgColor
     }
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    func launchCountryTable(_ sender: UITapGestureRecognizer) {
         let countryTableView = CountryTableViewController(withData: self.countryStore) {
             self.updateCountry($0)
         }
-        let navigationController = ModalNavigationController(rootViewController: countryTableView)
-        navigationController.navigationBar.topItem?.title = "Select your Country code".i18n(key: "com.auth0.lock.passwordless.sms.country.header", comment: "Country tableview navigation header")
-        navigationController.addClose {
-            navigationController.dismiss(animated: true, completion: nil)
-        }
+        let navigationController = UINavigationController(rootViewController: countryTableView)
         guard let topController = findTopViewController() else { return }
         topController.present(navigationController, animated: true, completion: nil)
     }
@@ -214,19 +211,5 @@ fileprivate func findTopViewController(from root: UIViewController? = nil) -> UI
         return findTopViewController(from: selected)
     default:
         return root
-    }
-}
-
-fileprivate class ModalNavigationController: UINavigationController {
-
-    var onClose: () -> Void = { _ in }
-
-    func close() {
-        self.onClose()
-    }
-
-    func addClose(_ callback: @escaping () -> Void) {
-        self.navigationBar.topItem?.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action:#selector(close))
-        self.onClose = callback
     }
 }

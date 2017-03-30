@@ -102,6 +102,8 @@
 "com.auth0.lock.input.email_username.placeholder" = "Username/Email";
 // empty input
 "com.auth0.lock.input.empty.error" = "Must not be empty";
+// generic input error
+"com.auth0.lock.input.generic.error" = "Invalid input";
 // invalid otp
 "com.auth0.lock.input.otp.error" = "Must be a valid numeric code";
 // OTP placeholder
@@ -116,8 +118,6 @@
 "com.auth0.lock.input.policy.error" = "Password does not fulfill policy";
 // invalid username
 "com.auth0.lock.input.username.error" = "Can only contain between %d to %d alphanumeric characters and \'_\'.";
-// invalid username generic
-"com.auth0.lock.input.username.error.generic" = "Must have a valid username";
 // Username placeholder
 "com.auth0.lock.input.username.placeholder" = "Username";
 // Multifactor message

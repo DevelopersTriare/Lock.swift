@@ -201,7 +201,7 @@ class PasswordlessRouterSpec: QuickSpec {
 
             it("should override connections") {
                 var connections = OfflineConnections()
-                connections.passwordless(name: "custom-email", strategy: "email")
+                connections.email(name: "custom-email")
                 router.reload(with: connections)
                 let actual = router.lock.connections
                 expect(actual.isEmpty) == false
@@ -210,7 +210,7 @@ class PasswordlessRouterSpec: QuickSpec {
 
             it("should show root") {
                 var connections = OfflineConnections()
-                connections.passwordless(name: "custom-email", strategy: "email")
+                connections.email(name: "custom-email")
                 router.reload(with: connections)
                 expect(controller.presentable).toNot(beNil())
                 expect(controller.routes.history).to(beEmpty())
@@ -222,8 +222,8 @@ class PasswordlessRouterSpec: QuickSpec {
                 controller.headerView = header
                 router = PasswordlessRouter(lock: lock, controller: controller)
                 var connections = OfflineConnections()
-                connections.passwordless(name: "custom-email", strategy: "email")
-                connections.passwordless(name: "custom-sms", strategy: "sms")
+                connections.email(name: "custom-email")
+                connections.sms(name: "custom-sms")
                 router.reload(with: connections)
                 let actual = router.lock.connections
                 expect(actual.passwordless.map { $0.name }).toNot(contain("sms"))
