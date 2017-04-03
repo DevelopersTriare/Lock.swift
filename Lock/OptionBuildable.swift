@@ -36,6 +36,9 @@ public protocol OptionBuildable: Options {
         /// Privacy Policy URL. By default is Auth0's.
     var privacyPolicyURL: URL { get set }
 
+        /// Support URL. By default this is not set.
+    var supportURL: URL? { get set }
+
         /// Log level for Lock. By default is `Off`.
     var logLevel: LoggerLevel { get set }
 
@@ -133,6 +136,18 @@ public extension OptionBuildable {
         set {
             guard let url = URL(string: newValue) else { return } // FIXME: log error
             self.privacyPolicyURL = url
+        }
+    }
+
+        /// SupportURL. By default is not set.
+    var support: String {
+        get {
+            guard let url = self.supportURL else { return "" }
+            return url.absoluteString
+        }
+        set {
+            guard let url = URL(string: newValue) else { return } // FIXME: log error
+            self.supportURL = url
         }
     }
 
