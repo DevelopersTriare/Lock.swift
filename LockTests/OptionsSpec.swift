@@ -62,7 +62,7 @@ class OptionsSpec: QuickSpec {
             }
 
             it("should have Auth0 support as empty String") {
-                expect(options.support) == ""
+                expect(options.supportPage) == ""
             }
 
             it("should have openid as scope") {
@@ -232,12 +232,12 @@ class OptionsSpec: QuickSpec {
             }
 
             it("should set support site") {
-                options.support = "https://auth0.com/docs"
+                options.supportPage = "https://auth0.com/docs"
                 expect(options.supportURL?.absoluteString) == "https://auth0.com/docs"
             }
 
             it("should ignore invalid support site") {
-                options.support = "not a url"
+                options.supportPage = "not a url"
                 expect(options.supportURL?.absoluteString).to(beNil())
             }
         }

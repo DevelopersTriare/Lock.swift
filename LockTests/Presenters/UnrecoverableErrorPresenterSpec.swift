@@ -62,7 +62,7 @@ class UnrecoverableErrorPresenterSpec: QuickSpec {
                 }
             }
 
-            context("support error") {
+            context("support error with no page (default)") {
 
                 beforeEach {
                     presenter = UnrecoverableErrorPresenter(error: .invalidClientOrDomain, navigator: navigator, options: options)
@@ -74,10 +74,10 @@ class UnrecoverableErrorPresenterSpec: QuickSpec {
                 }
             }
 
-            context("support error with URL option") {
+            context("support error with support page provided") {
 
                 beforeEach {
-                    options.support = "http://auth0.com/docs"
+                    options.supportPage = "http://auth0.com/docs"
                     presenter = UnrecoverableErrorPresenter(error: .invalidClientOrDomain, navigator: navigator, options: options)
                     view = presenter.view as? UnrecoverableErrorView
                 }

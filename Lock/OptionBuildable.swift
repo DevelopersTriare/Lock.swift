@@ -36,7 +36,7 @@ public protocol OptionBuildable: Options {
         /// Privacy Policy URL. By default is Auth0's.
     var privacyPolicyURL: URL { get set }
 
-        /// Support URL. By default this is not set.
+        /// Support page url that will be displayed (Inside Safari) when an unrecoverable error occurs and the user taps the "Contact Support" button in the error screen.
     var supportURL: URL? { get set }
 
         /// Log level for Lock. By default is `Off`.
@@ -139,8 +139,8 @@ public extension OptionBuildable {
         }
     }
 
-        /// SupportURL. By default is not set.
-    var support: String {
+        /// Support Page URL. By default is not set.
+    var supportPage: String {
         get {
             guard let url = self.supportURL else { return "" }
             return url.absoluteString
