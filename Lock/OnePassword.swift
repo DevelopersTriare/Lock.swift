@@ -42,12 +42,12 @@ class OnePassword: PasswordManager {
     }
 
     static func isAvailable() -> Bool {
-        return OnePasswordExtension.shared().isAppExtensionAvailable()
+        return LockOnePasswordExtension.shared().isAppExtensionAvailable()
     }
 
     func login(callback: @escaping ([String: InputField]?, Error?) -> Void) {
         guard let controller = self.controller else { return }
-        OnePasswordExtension.shared().findLogin(forURLString: self.identifier, for: controller, sender: nil) { (result, error) in
+        LockOnePasswordExtension.shared().findLogin(forURLString: self.identifier, for: controller, sender: nil) { (result, error) in
             guard error == nil else {
                 return callback(nil, error)
             }
@@ -61,7 +61,7 @@ class OnePassword: PasswordManager {
         guard let controller = self.controller else { return }
         var loginDetails: [String: String] = [:]
         self.fields.forEach { loginDetails[$0] = $1.text }
-        OnePasswordExtension.shared().storeLogin(forURLString: self.identifier, loginDetails: loginDetails, passwordGenerationOptions: policy, for: controller, sender: nil) { (result, error) in
+        LockOnePasswordExtension.shared().storeLogin(forURLString: self.identifier, loginDetails: loginDetails, passwordGenerationOptions: policy, for: controller, sender: nil) { (result, error) in
             guard error == nil else {
                 return callback(nil, error)
             }
