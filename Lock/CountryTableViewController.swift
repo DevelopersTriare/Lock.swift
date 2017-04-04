@@ -38,7 +38,7 @@ class CountryTableViewController: UITableViewController {
 
         search.searchResultsUpdater = self
         search.dimsBackgroundDuringPresentation = false
-        search.searchBar.placeholder = "Search country".i18n(key: "com.auth0.lock.passwordless.sms.country.search", comment: "CountryCodes TableView searchbar placeholder")
+        search.searchBar.placeholder = "search country".i18n(key: "com.auth0.lock.passwordless.sms.country.search", comment: "CountryCodes TableView searchbar placeholder")
         definesPresentationContext = true
         tableView.tableHeaderView = search.searchBar
 
@@ -57,7 +57,6 @@ class CountryTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,9 +65,12 @@ class CountryTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellData = dataStore.filteredData()[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath)
-        cell.textLabel?.text = String(format: "%1$@    %2$@".i18n(key: "com.auth0.passwordless.sms.country.tablecell", comment: "CountryCodes TableView cell %@{localizedName}    %@{phoneCode}"),
-                                      cellData.localizedName, cellData.phoneCode)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) ??
+            UITableViewCell(style: .value1, reuseIdentifier: cellReuseIdentifier)
+        cell.textLabel?.text = String(format: "%1$@".i18n(key: "com.auth0.passwordless.sms.country.cell.label", comment: "CountryCodes TableViewCell label %@{localizedName}"),
+                                      cellData.localizedName)
+        cell.detailTextLabel?.text = String(format: "%1$@".i18n(key: "com.auth0.passwordless.sms.country.cell.detail", comment: "CountryCodes TableViewCell detail %@{phoneCode}"),
+                                            cellData.phoneCode)
         return cell
     }
 
