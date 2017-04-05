@@ -24,6 +24,7 @@
 		5B3440C51E7C09A1009F8BF7 /* PasswordlessRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3440C41E7C09A1009F8BF7 /* PasswordlessRouter.swift */; };
 		5B3440CB1E7C11E7009F8BF7 /* ClassicRouterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3440C91E7C11E5009F8BF7 /* ClassicRouterSpec.swift */; };
 		5B3440CC1E7C11EB009F8BF7 /* PasswordlessRouterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3440C61E7C0D6E009F8BF7 /* PasswordlessRouterSpec.swift */; };
+		5B38F84F1E93F2A300C25EAC /* OnePasswordSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38F84D1E93F2A000C25EAC /* OnePasswordSpec.swift */; };
 		5B3DA2561E6ED92F00370C17 /* Auth0OAuth2InteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F92C68A1D4FE90F00CCE6C0 /* Auth0OAuth2InteractorSpec.swift */; };
 		5B4DE0151DD66DE1004C8AC2 /* EnterpriseDomainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4DE0141DD66DE1004C8AC2 /* EnterpriseDomainInteractor.swift */; };
 		5B4DE0171DD67064004C8AC2 /* EnterpriseActiveAuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4DE0161DD67064004C8AC2 /* EnterpriseActiveAuthPresenter.swift */; };
@@ -231,6 +232,7 @@
 		5B3440C41E7C09A1009F8BF7 /* PasswordlessRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordlessRouter.swift; sourceTree = "<group>"; };
 		5B3440C61E7C0D6E009F8BF7 /* PasswordlessRouterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordlessRouterSpec.swift; sourceTree = "<group>"; };
 		5B3440C91E7C11E5009F8BF7 /* ClassicRouterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassicRouterSpec.swift; sourceTree = "<group>"; };
+		5B38F84D1E93F2A000C25EAC /* OnePasswordSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnePasswordSpec.swift; sourceTree = "<group>"; };
 		5B4DE0141DD66DE1004C8AC2 /* EnterpriseDomainInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EnterpriseDomainInteractor.swift; path = Lock/EnterpriseDomainInteractor.swift; sourceTree = SOURCE_ROOT; };
 		5B4DE0161DD67064004C8AC2 /* EnterpriseActiveAuthPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EnterpriseActiveAuthPresenter.swift; path = Lock/EnterpriseActiveAuthPresenter.swift; sourceTree = SOURCE_ROOT; };
 		5B4DE0181DD670F7004C8AC2 /* EnterpriseActiveAuthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EnterpriseActiveAuthView.swift; path = Lock/EnterpriseActiveAuthView.swift; sourceTree = SOURCE_ROOT; };
@@ -430,6 +432,14 @@
 			children = (
 			);
 			name = Validators;
+			sourceTree = "<group>";
+		};
+		5B38F8501E93F45C00C25EAC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				5B38F84D1E93F2A000C25EAC /* OnePasswordSpec.swift */,
+			);
+			name = Extension;
 			sourceTree = "<group>";
 		};
 		5B94D5AC1E8E6AF400E9D4F1 /* Extensions */ = {
@@ -727,6 +737,7 @@
 				5F5F98D11D21E3710016FC22 /* Presenters */,
 				5FFC54FF1D3803EC00579581 /* Router */,
 				5F5090061D1DE7A000EAA650 /* Utils */,
+				5B38F8501E93F45C00C25EAC /* Extension */,
 				5FEAE1D71D1A5154005C0028 /* Info.plist */,
 				5FA2504F1D48E2A200C544FA /* OptionsSpec.swift */,
 				5B1FD96E1E4E2E670055C1AC /* PasswordlessActivitySpec.swift */,
@@ -1145,6 +1156,7 @@
 				5F0FCF921E201CF300E3D53B /* ObserverStoreSpec.swift in Sources */,
 				5B55F3D41E24FFD000B75CF5 /* UnrecoverableErrorSpec.swift in Sources */,
 				5F73CDDC1D309BE900D8D8D1 /* DatabasePasswordInteractorSpec.swift in Sources */,
+				5B38F84F1E93F2A300C25EAC /* OnePasswordSpec.swift in Sources */,
 				5F2496AF1D66210500A1C6E2 /* LockViewControllerSpec.swift in Sources */,
 				5FA250501D48E2A200C544FA /* OptionsSpec.swift in Sources */,
 				5FBE5CC21D3E5EF50038536D /* MultifactorInteractorSpec.swift in Sources */,

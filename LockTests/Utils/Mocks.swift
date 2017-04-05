@@ -485,3 +485,24 @@ class MockPasswordlessInteractor: PasswordlessAuthenticatable {
         callback(onLogin())
     }
 }
+
+class MockPasswordManager: PasswordManager {
+    static var available: Bool = true
+
+    var fields: [String: InputField] = [:]
+
+    var onLogin: ([String: InputField]) -> Void = {_ in }
+    var onStore: ([String: InputField]) -> Void = {_ in }
+
+    static func isAvailable() -> Bool {
+        return MockPasswordManager.available
+    }
+
+    func login(callback: @escaping ([String: InputField]?, Error?) -> Void) {
+        self.onLogin(fields)
+    }
+
+    func store(withPolicy policy: [String: Any]?, callback: @escaping ([String: InputField]?, Error?) -> Void) {
+        self.onStore(fields)
+    }
+}

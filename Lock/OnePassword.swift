@@ -36,7 +36,7 @@ class OnePassword: PasswordManager {
     weak var controller: UIViewController?
     var fields: [String: InputField] = [:]
 
-    init(identifier: String, controller: UIViewController?) {
+    required init(identifier: String, controller: UIViewController?) {
         self.identifier = identifier
         self.controller = controller
     }
