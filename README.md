@@ -342,6 +342,35 @@ When signing up the default information requirements are the user's *email* and 
 
 *Note: You must specify the icon to use with your custom text field and store it in your App's bundle.*
 
+#### 1Password
+
+You can enable 1Password support using the `enableOnePasswordWithIdentifier` option.  
+
+```swift
+.withOptions {
+    $0.enableOnePasswordWithIdentifier = "MyProduct"
+}
+```
+
+If you need to share credentials with your website that also uses the same Auth0 connection, then you can use name of the site e.g.
+
+```swift
+.withOptions {
+    $0.enableOnePasswordWithIdentifier = "www.website.com"
+}
+```
+
+You will also need to add the following to your app's `info.plist`:
+
+```xml
+<key>LSApplicationQueriesSchemes</key>
+<array>
+    <string>org-appextension-feature-password-management</string>
+</array>
+```
+
+*Note: The user must have the 1Password app installed for 1Password button to be active.*
+
 #### Enterprise
 
 * **enterpriseConnectionUsingActiveAuth**: By default Enterprise connections will use Web Authentication. However you can specify which connections will alternatively use credential authentication and prompt for a username and password.
