@@ -117,7 +117,7 @@
     UIImage *image = [theme imageForKey:A0ThemeScreenBackgroundImageName];
     if (image) {
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
         [self.view insertSubview:imageView atIndex:0];
     }
     self.view.backgroundColor = [theme colorForKey:A0ThemeScreenBackgroundColor];
