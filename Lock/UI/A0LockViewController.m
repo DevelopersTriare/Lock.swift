@@ -118,6 +118,7 @@
     if (image) {
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
+        imageView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width / 1.1671);
         [self.view insertSubview:imageView atIndex:0];
     }
     self.view.backgroundColor = [theme colorForKey:A0ThemeScreenBackgroundColor];
